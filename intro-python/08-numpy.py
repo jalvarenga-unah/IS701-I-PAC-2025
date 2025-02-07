@@ -18,6 +18,11 @@ print(lista_2d.shape)
 
 lista_numeros = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
 
+print(lista_numeros.reshape(-1,1)) # cambair la forma del array
+
 # Slicing
-print(lista_numeros.reshape(-1,1)) # la posicion final
+
+print(lista_numeros[4:9])
+
+
 
