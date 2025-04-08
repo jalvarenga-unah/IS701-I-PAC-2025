@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversión C a F</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+</head>
+
+<body>
+
+
+    <header>
+        <h1>Conversión de Celsius a Fahrenheit</h1>
+        <p>Convierte grados Celsius a Fahrenheit utilizando un modelo de TensorFlow.js</p>
+    </header>
+    <main>
+        <form id="conversion-form">
+            <label for="celsius">Grados Celsius:</label>
+            <input type="number" id="celsius" required>
+            <button type="submit">Convertir</button>
+        </form>
+        <hr>
+        <h2>Resultado:</h2>
+        <div id="resultado"></div>
+    </main>
+
+
+
+    <script>
+
+        // Cargar el modelo de TensorFlow.js
+        let model;
+        async function loadModel() {
+
+            console.log("Modelo cargado");
+        }
+
+        // Función para convertir Celsius a Fahrenheit
+        async function convertCelsiusToFahrenheit(celsius) {
+
+            return celsius * 9 / 5 + 32;
+        }
+
+        // Manejar el envío del formulario
+        document.getElementById('conversion-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const celsius = parseFloat(document.getElementById('celsius').value);
+            const fahrenheit = await convertCelsiusToFahrenheit(celsius);
+            document.getElementById('resultado').innerText = `${celsius} °C es igual a ${fahrenheit.toFixed(2)} °F`;
+        });
+
+        // Cargar el modelo al iniciar la página
+        loadModel();
+
+
+    </script>
+</body>
